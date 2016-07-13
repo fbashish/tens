@@ -1,9 +1,9 @@
 # First, force https secure connection
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.tensitron.com/$1 [R,L]
-</IfModule>
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://www.tensitron.com/$1 [R,L]
+#</IfModule>
 
 # Set the default handler.
 # THIS DIRECTIVE IS CONFIGURED IN APACHE CONFIG AND NOT ALLOWED HERE
