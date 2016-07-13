@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /vendor/
+Disallow: /src/
+Disallow: /extensions/
+Disallow: /theme/parallelism/
+Disallow: /theme/base-2014/
+Disallow: /composer.lock.dist
+Disallow: /composer.json.dist
+Disallow: /changelog.md
+Disallow: /show-error-*
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Adsbot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+
+Sitemap: http://tensitron.com/sitemap.xml

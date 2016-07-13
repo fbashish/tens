@@ -1,0 +1,74 @@
+{% include '_header.twig' %}
+<div id="page-content" class="container-fluid">
+      <div class="row">
+	
+		<aside class="col-md-3 hidden-xs hidden-sm">
+
+          	{% include '_aside.twig' %}
+
+        </aside>
+        <section  class="col-md-9">
+			<div id="record-content">
+				<h1 class="title-box">
+				    {{ searchresult.no_of_results }} results for {{ search }} found.
+				</h1>
+				<div class="content">
+        {% for record in records %}
+					<div class="row search-result">
+						{% if record.image!="" %}
+		        	  	
+	          			<div class="col-md-4 col-sm-4 hidden-xs">
+			        	  	
+			        	    <a href="{{ record.link }}">
+	                	        <img src="{{ image(record.image) }}" class="img-responsive">
+			        	    </a>
+		        		</div>  
+			        	
+	        			{% endif	 %}
+						
+                
+	 		       		<div style="col-md-8 col-sm-8">
+			        	  	<h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+		
+			        		{% if record.introduction %}
+			        		  {{ record.introduction }}
+			        		{% elseif record.teaser %}
+			        		  {{ record.teaser }}
+			        		{% else %}
+			        		  <p>{{ record.excerpt(300) }}</p>
+			        		{% endif %}
+                
+						</div>
+    			</div>
+
+
+
+
+	        		{% else %}
+			    	<article>
+				        <h2>No content found.</h2>
+
+				        <p>
+				            Unfortunately, no content could be found. Try another page, or go to the
+				            <a href="{{ paths.root }}">homepage</a>.
+				        </p>
+
+				        {#
+				        optionally, you can redirect the browser to another page. Just uncomment the next line to do so.
+				        {{ redirect('/') }}
+				        #}
+
+				    </article>
+			   	 	{% endfor %}                                                                       
+                                                                                            
+	   	 			{# If there are more records than will fit on one page, the pager is shown. #}     
+
+	    			<br>
+	    			{{ pager() }}
+				</div><!-- end content -->
+			</div><!-- end record content -->
+    	</section><!-- end col-md-9 -->
+    </div><!-- end row -->
+</div><!-- end page content -->
+
+    {% include '_footer.twig' %}

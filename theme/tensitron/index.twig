@@ -1,0 +1,107 @@
+{% include '_header.twig' %}
+						
+	    <!-- Header bar -->
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+	    <!-- Menu -->
+
+
+	    <!-- Items -->
+	    <div class="carousel-inner">
+			
+
+
+			{% setcontent records = "products/random/5" where { categories: 'featured' } %}
+			
+
+	        {% for record in records %}
+			
+				{% if loop.first %}
+				 <div class="item active">
+					
+		          	
+			
+				{% else %}
+	
+
+		      	<div class="item">
+
+		          
+
+				{% endif %}
+				<img src="{{ image(record.background_image) }}"></a>
+				<div class="slide-mask"></div>
+				
+					<div class="container-fluid">
+						<div class="carousel-caption">
+							<div class="row">
+								<div class="col-md-5 col-sm-7">
+									<a href="{{ record.link }}"><img class="img-responsive" src="{{ image(record.product_image) }}" alt="{{ record.img_alt }}"></a>
+								</div>
+								<div id="slider-info" class="col-md-7 col-sm-5 hidden-xs">
+									<h1><a href="{{ record.link }}">{{ record.title }}</a></h1>
+									
+									<p>{{ record.teaser }}</p>
+						        	<p><a href="{{ record.link }}" class="btn btn-primary btn-lg" role="button">Read More <i class="fa fa-long-arrow-right"></i></a></p>
+						
+						
+									
+								</div>
+							</div>
+						</div>
+					</div>
+	          	</div>
+	     {% endfor %}
+	    </div> 
+	    <a href="#carousel" class="left carousel-control" data-slide="prev">
+	        <span class="glyphicon glyphicon-chevron-left"></span>
+	    </a>
+	    <a href="#carousel" class="right carousel-control" data-slide="next">
+	        <span class="glyphicon glyphicon-chevron-right"></span>
+	    </a>
+	</div>
+
+
+
+
+	   
+	    <!-- End header -->
+	<div  class="container-fluid">
+		<div id="home-content">
+			<div class="content">
+				{% if record.title!="" %}
+				<div class="row">
+						<h1>{{ record.title }}</h1>	
+				</div>
+				{% endif %}
+
+				<div class="row">
+		            {% if record.image!="" %}
+		                <div id="adr" class="col-md-4">
+			
+							<figure class='img-good'>
+							          <a class="fancybox" href="{{ image(record.image) }}" title="{{ record.img_alt }}"><img src="{{ thumbnail(record.image, 500, 260) }}" class="img-responsive" alt="{{ record.img_alt }}"></a>
+							        </figure>
+
+		                </div>
+
+		            {% endif %}
+					{% if record.body!="" %}
+
+						<div class="col-md-8">
+							<p>{{ record.body }}</p>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+		</div>
+	</div>
+
+	    
+	{% include 'cta-buttons.twig' %}
+
+
+
+	{% include '_footer.twig' %}
+	
+	<script>$('#carousel').carousel();</script>
+	

@@ -1,0 +1,62 @@
+{% include '_header.twig' %}
+
+<div id="page-content" class="container-fluid">
+      <div class="row">
+		<aside class="col-md-3">
+	      <div id="sidebar-nav">
+
+	      	{% include '_aside.twig' %}
+
+	      </div><!-- / sidebar-nav -->
+	    </aside>
+        <div class="col-md-9">
+        <h2>{{ record.title }}</h2>
+
+            {% if record.image!="" %}
+                <div class="four columns imageholder">
+                    <a href="{{ image(record.image) }}">
+                        <img src="{{ thumbnail(record.image, 757, 260) }}">
+                    </a>
+                </div>
+            {% endif %}
+
+            {# display something introduction-like.. #}
+            {% if record.introduction %}
+            {{ record.introduction }}
+            {% elseif record.teaser %}
+                {{ record.teaser }}
+            {% else %}
+                <p>{{ record.excerpt(1000) }}</p>
+            {% endif %}
+
+            {# if the entry has a video, display it. #}
+            {% if record.video is not empty %}
+                {{ record.video.responsive }}
+            {% endif %}
+
+            {{ record.body }}
+
+            {% include '_recordfooter.twig' with {record: record} %}
+
+            <p class="meta">
+                {% set previous = record.previous('id') %}
+                {% if previous %}
+                    <a href="{{ previous.link }}">&laquo; {{ previous.title }}</a>
+                {% endif %}
+                -
+                {% set next = record.next('id') %}
+                {% if next %}
+                    <a href="{{ next.link }}">{{ next.title }} &raquo;</a>
+                {% endif %}
+            </p>
+
+			</div>
+
+    </div>
+    <br>  
+
+    </div>
+
+    <hr>
+
+    {% include '_footer.twig' %}

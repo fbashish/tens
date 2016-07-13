@@ -1,0 +1,13 @@
+# sitemap settings
+
+template: assets/sitemap.twig
+xml_template: assets/sitemap_xml.twig
+
+ignore:
+  - /page/home
+  - /page/not-found
+
+
+## ignore by "slug" of contenttype
+ignore_contenttype:
+  - operating-instructions

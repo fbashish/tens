@@ -1,0 +1,19 @@
+<div class="app-container col-md-3 col-sm-4 col-xs-12 ">
+	<figure class="app img-bend"> 
+	 <a class="fancybox fancybox.iframe" href="files/{{ record.pdf }}"></a>
+		<figcaption class="">	
+			<h5>{{ record.title }}</h5>
+
+
+		
+	        <p>{% if record.teaser %}
+	          {{ record.teaser }}
+	        {% endif %}
+			</p>
+
+		</figcaption>
+		<footer><i class="fa fa-file-pdf-o"></i> PDF</footer>
+	
+	</figure>	
+
+</div>

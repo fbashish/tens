@@ -1,0 +1,53 @@
+{% include '_header.twig' %}
+<div id="contact-back">
+	<main id="page-content" class="container-fluid">
+	      <div class="row">
+	
+		      	<aside class="col-md-3 col-sm-4 hidden-xs">
+
+			      	{% include '_about_aside.twig' %}
+
+		    	</aside>
+				<section class="col-md-9 col-sm-8">
+	        		<div id="record-content">
+			    		<h1 class="title-box">{{ record.title }}</h1>
+    
+						{% if record.image!="" %}
+		            <div class="imageholder">
+		                <a class="fancybox" href="{{ image(record.image) }}" title="{{ record.img_alt }}">
+		                    <img src="{{ image(record.image, 880, 325) }}" class="img-responsive" alt="{{ record.img_alt }}">
+		                </a>
+		            </div>
+		            {% endif %}
+					<div class="content">
+
+				            {# display something introduction-like.. #}
+				            {% if record.introduction %}
+				            {{ record.introduction }}
+				            {% elseif record.teaser %}
+				                {{ record.teaser }}
+				            {% else %}
+				                <p>{{ record.excerpt(1000) }}</p>
+				            {% endif %}
+
+				            {# if the entry has a video, display it. #}
+				            {% if record.video is not empty %}
+				                {{ record.video.responsive }}
+				            {% endif %}
+
+				            {{ record.body }}
+
+				           
+						</div><!-- end content -->
+					</div><!-- end record content -->
+
+				</div><!-- end 8 -->
+
+
+
+	    </div><!-- end row -->
+
+	</main><!-- end main-content -->
+</div>
+
+    {% include '_footer.twig' %}

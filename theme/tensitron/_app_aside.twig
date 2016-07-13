@@ -1,0 +1,48 @@
+
+    <div id="sidebar-nav">
+		<div class="sidebar-img">
+			<a class="fancybox" href="files/product-cases-sm.jpg">
+				<img src="files/product-cases-sm.jpg">
+		    </a>
+		</div>
+
+
+
+		<div class="section-aside">
+				<h3>Our Products</h3>
+	
+				<div id="metainfo">
+			      	{% setcontent records = "products" orderby "title"  %}
+							    <ul class="">
+			      		{% for record in records %}
+					        <li>
+					            <a href="{{ record.link }}">{{ record.title }}</a>
+					        </li>
+					    {% endfor %}
+					    </ul>
+				</div>
+
+
+		</div>
+		<hr class="dashed"/>
+		
+		
+
+		<div class="section-aside">
+			<div class="testimonial-random">
+				{% setcontent records = "testimonials/random/1" %}
+
+		        {% for record in records %}
+				<blockquote>
+				  	<p>{{ record.body }}</p>
+			          	<footer><cite>{{ record.title }}</cite></footer>
+				</blockquote>
+		          
+
+		     {% endfor %}
+			</div>
+		</div>
+
+
+	</div><!-- / sidebar-nav -->
+<div id="sidefoot"></div>

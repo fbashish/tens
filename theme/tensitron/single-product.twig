@@ -1,0 +1,143 @@
+{% include '_header.twig' %}
+<div id="products">
+	<div id="page-content" class="container-fluid">
+	      <div class="row">
+	
+				<aside class="col-md-3 hidden-sm hidden-xs">
+			      	{% include '_single_product_aside.twig' %}
+				</aside>
+
+				<section id="content-right">
+					{% if record.background_image!="" %}
+				
+					<header class="col-md-9 hidden-sm hidden-xs">
+						        <div id="page-top-imageholder" style="background:url({{ image(record.background_image) }}) center center no-repeat; background-attachment:fixed; background-size:cover">
+									<div class="img-mask">
+
+										<div id="featured-product" class="row">
+											{% if record.product_image!="" %}
+											<div class="featured-img col-md-6 col-sm-6 col-xs-6">
+								                        <a class="fancybox" href="{{ image(record.product_image) }}" title="{{ record.img_alt }}">
+								                            <img class="img-responsive" src="{{ image(record.product_image) }}" alt="{{ record.img_alt }}">
+								                        </a>	
+						            		</div>
+											<div id="featured-info" class="col-md-6 col-sm-6 col-xs-6">
+												<h1>{{ record.title }}</h1>
+												<p>{{ record.teaser}}</p>
+											</div>
+
+								         {% endif %}
+										</div>
+									</div>
+								</div>
+							</header>
+					
+					<header class="col-md-9 visible-sm visible-xs">
+							        <div id="page-top-imageholder" style="background:url({{ image(record.background_image) }}) no-repeat; background-attachment:fixed; background-size: cover;">
+										<div class="img-mask">
+								
+											<div id="featured-product" class="row">
+												{% if record.product_image!="" %}
+												<div class="featured-img col-md-6 col-sm-6 col-xs-8">
+										                    <a class="fancybox" href="{{ image(record.product_image) }}" title="{{ record.img_alt }}">
+										                        <img class="img-responsive" src="{{ image(record.product_image) }}">
+										                    </a>	
+								            	</div>
+												<div id="featured-info" class="col-md-6 col-sm-4">
+													<h1>{{ record.title }}</h1>
+													<p><big>{{ record.teaser}}</big></p>
+												</div>
+								
+
+									         {% endif %}
+											</div>
+										</div>
+					 				</div>
+								</header>
+
+
+					<div class="col-md-9">
+
+						<div id="content-top"></div>
+	       				<div id="record-content">
+							<div class="content">
+								<h2>{{ record.title }}</h2>
+	 							<p><big>{{ record.introduction }}</big></p>
+
+							{% elseif record.product_image!="" %}
+	
+					<div class="col-md-9">
+
+	
+
+	        			<div id="record-content">
+							<h1 class="title-box">{{ record.title}}</h1>
+								<div class="content">
+									<div class="row">
+			 							<div class="col-md-4 col-sm-4 col-xs-6">
+			 								<a class="fancybox" href="{{ image(record.product_image) }}" title="{{ record.img_alt }}">
+			 		                	        <img class="img-responsive img-good" src="{{ image(record.product_image) }}">
+			 		                	    </a>
+										</div>
+										<div class="col-md-8 col-sm-8 col-xs-6">
+											<h2>{{ record.title }}</h2>
+											<p><big>{{ record.teaser }}</big></p>
+				 							<p><big>{{ record.introduction }}</big></p>
+										</div>
+									</div>
+									
+			
+						
+						{% else %}
+
+
+						<div class="col-md-9">
+
+	
+
+	        			<div id="record-content">
+							<h1 class="title-box">{{ record.title}}</h1>
+								<div class="content">
+									<div class="row">
+										<div class="col-xs-12">
+											<h2>{{ record.title }}</h2>
+											<p><big>{{ record.teaser }}</big></p>
+				 							<p><big>{{ record.introduction }}</big></p>
+										</div>
+									</div>
+
+
+
+
+
+
+
+			    {% endif %}
+		
+				
+				
+ 						
+ 					
+ 				        	
+							
+            	
+
+ 
+	 					            {{ record.body }}
+ 
+ 
+ 					            
+	 						</div><!-- end content-->
+						</div><!-- end record-content-->
+					</div><!-- col-md-9 -->
+				</section>
+
+
+	    </div><!-- end main row-->
+
+
+	</div><!-- end main content -->
+
+</div>
+
+    {% include '_footer.twig' %}

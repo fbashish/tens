@@ -1,0 +1,64 @@
+{% include '_header.twig' %}
+<div id="record-back">
+
+	<main id="page-content" class="container-fluid">
+	      <div class="row">
+
+		      	<aside class="col-md-3 col-sm-4 hidden-xs">
+
+			      	{% include '_aside.twig' %}
+
+		    	</aside>
+				<section class="col-md-9 col-sm-8">
+	        		<div id="record-content">
+			    		<h1 class="title-box">{{ record.title }}</h1>
+						<section id="gmap">
+
+							<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:325px;width:100%;"><div id="gmap_canvas" style="height:325px;width:100%;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="https://www.map-embed.com" id="get-map-data">http://www.map-embed.com</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:8,center:new google.maps.LatLng(40.1492255,-105.11197870000001),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.1492255, -105.11197870000001)});infowindow = new google.maps.InfoWindow({content:"<b>Tensitron Inc,</b><br/>South Bowen Street<br/> Longmont" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+						<section>
+
+
+						
+
+
+					<div class="content">
+						<div class="row">
+
+							<div class="col-md-6">
+								
+					            {# display something introduction-like.. #}
+					            {% if record.introduction %}
+					            {{ record.introduction }}
+					            {% elseif record.teaser %}
+					                {{ record.teaser }}
+					            {% else %}
+					                <p>{{ record.excerpt(1000) }}</p>
+					            {% endif %}
+
+					            {# if the entry has a video, display it. #}
+					            {% if record.video is not empty %}
+					                {{ record.video.responsive }}
+					            {% endif %}
+
+					            {{ record.body }}
+
+							</div>
+							<div class="col-md-6">								
+								{{ simpleform('contact') }}
+							</div>
+						</div>
+													
+
+				        
+						</div><!-- end content -->
+					</div><!-- end record content -->
+
+				</div><!-- end 8 -->
+
+
+
+	    </div><!-- end row -->
+	</main><!-- end main-content -->
+</div>
+
+		    {% include '_footer.twig' %}

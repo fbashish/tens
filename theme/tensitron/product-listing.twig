@@ -1,0 +1,62 @@
+{% include '_header.twig' %}
+<div id="products">
+	
+	<div id="page-content" class="container-fluid">
+	
+
+	
+	    <div class="row">
+			<aside class="col-md-3 hidden-sm hidden-xs">
+
+		      	{% include '_app_aside.twig' %}
+
+		    </aside>
+		
+
+
+	        <div class="col-md-9">
+				<div id="product-content">
+				<h1 class="title-box">Our Products</h1>
+					<div class="content">
+		
+		
+					<div class="row" id="product-area">
+						{% setcontent records = 'products' orderby 'datecreated' %}
+						{% for record in records  %}
+						
+						 	{% include 'product.twig' %}
+							
+						{% endfor %}							
+
+					</div><!--end masonry-->
+</div>
+</div>
+
+
+	    	</div><!-- end  -->
+			{# If there are more records than will fit on one page, the pager is shown. #}
+
+			{{ pager() }}
+	    </div><!-- end row-fluid -->
+
+	</div><!-- end container -->
+</div>
+
+
+
+    {% include '_footer.twig' %}
+	<script type="text/javascript">
+	$(window).load(function(){
+
+		var $container = $('#product-area');
+		// initialize
+		$container.masonry({
+		  itemSelector: '.product-container'
+		});
+	});
+
+
+
+
+	</script>
+

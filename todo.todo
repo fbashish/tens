@@ -1,0 +1,10 @@
+ ☐ Nav collapsing properly
+ ☐ Random Testimonials
+ ☐ Search function
+ ☐ filter product post tag
+ - somewhere in the app files
+ - if search for app test to see if any part of that word is in the title
+ - pull search result and see if any result is in record.title|lower
+ - use an if statement for that
+ - looking for a string in a string (compare to js then see the === in twig)
+ - 

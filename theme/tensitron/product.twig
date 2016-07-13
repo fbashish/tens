@@ -1,0 +1,24 @@
+
+			<div class="product-container col-md-3 col-sm-3 col-xs-6 product-bend">
+
+							<figure class="product product-bend">
+								<a href="{{ record.link }}"></a>	
+							 	
+					      		<img src="{{ image(record.image) }}" class="img-responsive" alt="{{ record.img_alt }}" >
+								<figcaption class="product-info">	
+									<h5>{{ record.title }}</h5>
+
+
+								        
+							        	{% if record.teaser %}
+								          {{ record.teaser }}
+								        {% else %}
+								          <p>{{ record.excerpt(300) }}</p>
+								        {% endif %}
+								          
+										<!--<button type="button" class="btn btn-primary btn-xs">Read More</button>-->
+									</figcaption>
+							</figure>
+							
+						</div>	
+							

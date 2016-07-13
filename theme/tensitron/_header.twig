@@ -1,0 +1,54 @@
+  <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if record.seo_title!="" %}{{ record.seo_title|striptags }} | {% endif %}Precision Tension Measuring Instruments
+    </title>
+
+    {# Stylesheets #}
+
+    <link rel="stylesheet" href="{{ paths.theme }}css/bootstrap.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/bootstrap-theme.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="icon" type="image/png" href="https://tensitron.com/files/favicon.png">
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+	<META NAME="ROBOTS" CONTENT="{% if record.robots!="" %}{{ record.robots }}{% else %}INDEX, FOLLOW{% endif %}">
+		
+	
+		<meta name="description" content="{{ record.seo_description }}" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="{{ record. seo_title }}" />
+		<meta property="og:description" content="{{ record.seo_description }}" />
+		<meta property="og:url" content="https://tensitron.com/" />
+		<meta property="og:image" content="https://tensitron.com/files/{{ record.product_image }}" />
+		<meta property="article:published_time" content="2013-10-31" />
+		<meta property="article:modified_time" content="2015-05-12" />
+		<meta property="og:site_name" content="Precision Tension Measuring Instruments" />
+		<meta name="twitter:card" content="summary" />
+		
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed for tensitron.com"
+		      href="https://tensitron.com/rss/feed.xml">
+    
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+	{% include '_nav.twig' %}
+
+
+

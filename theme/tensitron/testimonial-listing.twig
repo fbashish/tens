@@ -1,0 +1,55 @@
+
+
+
+	{% include '_header.twig' %}
+<div id="contact-back">
+	<div id="page-content" class="container-fluid">
+	    <div class="row">
+
+			<aside class="col-md-3 hidden-sm hidden-xs">
+
+	          	{% include '_about_aside.twig' %}
+
+	        </aside>
+
+			<section  class="col-md-9">
+				<div id="record-content">
+				<h1 class="title-box">Testimonials</h1>
+				
+				<div class="imageholder">
+					                <a class="fancybox" href="files/blackhawk.jpg">
+					                    <img src="files/blackhawk.jpg" class="img-responsive">
+					                </a>
+					            </div>
+					<div class="content">
+						   {% for record in records %}
+						      
+							<blockquote>       
+							  <p>{{ record.body }}</p>
+						
+						<footer><cite title="Source Title">{{ record.title }}</cite></footer>
+					
+						 </blockquote> 
+						{% endfor %}
+					</div><!-- end content -->
+				</div><!-- end record content -->
+			</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    </div><!-- end row-fluid -->
+	</div><!-- end container -->
+</div>
+
+	    {% include '_footer.twig' %}

@@ -1,0 +1,255 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: http://docs.bolt.cm/content#defining-contenttypes
+
+# Pages can be used for the more 'static' pages on your site. Things like
+# 'about us', 'contact' or a 'disclaimer'. This content-type has a 'templateselect'
+# field, which allows you to override the record_template setting for an
+# individual page.
+# The taxonomy for this contenttype is defined as 'chapters', which is a so-called
+# "grouping taxonomy". This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        image:
+            label: Featured Image
+            type: image
+        teaser:
+            type: html
+            height: 150px
+        body:
+            type: html
+            height: 300px       
+        SEO title: 
+            label: SEO Title
+            type: text
+            class: small
+            group: SEO
+            required: false
+            pattern: "^[a-zA-Z0-9 ]{1,21}$"
+        SEO Description: 
+            label: SEO Description
+            type: text
+            class: small
+            group: SEO
+            required: false
+            pattern: "^[a-zA-Z0-9?',. ]{60,160}$"
+        IMG-alt:
+            label: Featured Image Alt Tag
+            type: text
+            class: small
+            group: SEO
+        Robots: 
+            type: select
+            values: { 'INDEX, FOLLOW': "INDEX, FOLLOW",'NOINDEX, NOFOLLOW': "NOINDEX, NOFOLLOW", 'NOINDEX, FOLLOW': "NOINDEX, FOLLOW", 'INDEX, NOFOLLOW': "INDEX, NOFOLLOW" }
+            multiple: false
+            group: SEO
+            postfix: This is for the robots. Don't touch unless you're a madman.
+        template:
+            type: templateselect
+            filter: '*.twig'
+    recordsperpage: 100
+    searchable: false
+    
+
+
+
+# Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
+# which can be used for a short blurb on listing-pages, allowing visitors to
+# click-through to the rest of the entry. It also has fields for an image and an
+# optional video.
+# A relation is defined to the pages contenttype. This way you can refer to a page
+# from your news-item.
+# This contenttype defines 'categories' and 'tags' as taxonomies, allowing the
+# editor to use both to categorize a specific entry.
+# The 'sort' is set to '-datepublish', which means that newer entries will be
+# shown above older entries.
+
+# entries:
+#     name: Entries
+#     singular_name: Entry
+#     fields:
+#         title:
+#             type: text
+#             class: large
+#             group: content
+#         slug:
+#             type: slug
+#             uses: title
+#         teaser:
+#             type: html
+#             height: 150px
+#         body:
+#             type: html
+#             height: 300px
+#         image:
+#             type: image
+#             group: media
+#         video:
+#             type: video
+#     relations:
+#         pages:
+#           multiple: false
+#           order: title
+#           label: Select a page
+#     taxonomy: [ categories, tags ]
+#     record_template: entry.twig
+#     listing_template: listing.twig
+#     listing_records: 10
+#     default_status: publish
+#     sort: -datepublish
+#     recordsperpage: 10
+#     searchable: false
+    
+    
+    
+    # Product Pages 
+
+products:
+    name: Products
+    singular_name: Product
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        teaser:
+            type: html
+            height: 150px
+        introduction:
+            type: html
+            height: 150px
+        body:
+            type: html
+            height: 300px
+        product image:
+            type: image
+            group: media
+        background image:
+            type: image
+            group: media
+        SEO title: 
+            label: SEO Title
+            postfix: "<p>SEO title goes here. The maximum length is 21 characters.</p>"
+            type: text
+            class: small
+            group: SEO
+            required: false
+            pattern: "^[a-zA-Z0-9 -_ ]{1,21}$"
+        SEO Description: 
+            postfix: "<p>SEO description goes here. The maximum length is 160 characters.</p>"
+            label: SEO Description
+            type: text
+            class: small
+            group: SEO
+            required: false
+            pattern: "^[a-zA-Z0-9 -_  ]{10,160}$"
+        IMG-alt:
+            label: Featured Image Alt Tag
+            type: text
+            class: small
+            group: SEO
+            required: false
+    taxonomy: [ categories, tags ]
+    record_template: single-product.twig
+    listing_template: product-listing.twig
+    listing_records: 50
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 50
+    searchable: true
+    
+# Application Pages 
+
+applications:
+    name: Operating Instructions
+    singular_name: Operating Instruction
+    fields:
+        title:
+            type: text
+            class: large
+            required: true
+            pattern: ".{2,255}" # see: http://html5pattern.com/
+            error: "The Title field is required, and must contain at least 2 characters"
+            group: Text
+        slug:
+            type: slug
+            uses: [ title ]
+        PDF:
+            label: Link To PDF File
+            type: file
+        template:
+            type: templateselect
+            filter: '*.twig'
+        datetime:
+            type: datetime
+            default: "2000-01-01"
+            variant: inline
+    record_template: entry.twig
+    listing_template: application-listing.twig
+    listing_records: 50
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 50
+    searchable: false
+    
+    
+testimonials:
+    name: Testimonials
+    singular_name: Testimonial
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        body:
+            type: html
+            height: 300px
+    record_template: single-testimonial.twig
+    listing_template: testimonial-listing.twig
+    listing_records: 50
+    default_status: publish
+    sort: -datepublish
+    recordsperpage: 10
+    searchable: false
+    
+
+
+# possible field types:
+# text - varchar(256) - input type text.
+# integer - integer - Input field for integer numbers.
+# float - double - Input field for floating numbers, stored as 'Double'.
+# geolocation - text (65kb) - Input field for geolocation. Enter an address, and the location is geocoded to latitude/longitude coordinates
+# imagelist - text (65kb) - Input type for imagelists. Add multiple images with a description. Useful for image sliders, galleries, etcetera.
+# image - varchar(256) - image select/upload widget, stored as filename.
+# file - varchar(256) - file select/upload widget, stored as filename.
+# filelist - text (65kb) - Input type for a list of files. Including a description.
+# video - varchar(256) - Video embed widget, stored as filename.
+# html - text (65kb) - wysiwyg element.
+# textarea - varchar(32768) - Simple, plain < textarea > field.
+# markdown - varchar(32768) - Simple, plain < textarea > field, which is parsed as Markdown text.
+# datetime - datetime - date and time selector widget.
+# date - datetime - date selector widget.
+# select - varchar(256) - select with predefined values
+# templateselect - varchar(256) - select with template filenames
+# checkbox - integer - checkbox-field which is 1 (checked) or 0 (unchecked)
+
+
+# number (deprecated) - input type decimal(18,9), useful for storing number that need to be sortable

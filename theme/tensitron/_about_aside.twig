@@ -1,0 +1,52 @@
+<!-- Sidebar -->
+<div id="sidebar-nav">
+	
+	
+	
+	
+		<!--{% if record.image!="" %}
+ 	<div class="sidebar-img">
+		<a class="fancybox" href="{{ image(record.image) }}">
+	        <img src="{{ thumbnail(record.image, 245, 185 ) }}" class="img-responsive">
+	    </a>
+	</div>
+	{% else %}
+	<div class="sidebar-img">
+			<a class="fancybox" href="files/product-cases.jpg">
+		        <img src="files/paratroopers.jpg" title="product cases" class="img-responsive">
+		    </a>
+		</div>
+	{% endif %}-->
+	
+	
+
+	<div class="section-aside">
+		<br />
+		<h3>About Us</h3>
+		<ul>
+			<li><a href="our-story">Our Story</a></li>
+			<li><a href="certifications-and-traceability">Certifications and Traceability</a></li>
+			<li><a href="testimonials">Testimonials</a></li>
+		</ul>
+	</div>
+	
+	<hr class="dashed"/>
+
+	<div class="section-aside">
+		<div class="testimonial-random">
+			{% setcontent records = "testimonials/random/1" %}
+
+	        {% for record in records %}
+			<blockquote>
+			  	<p>{{ record.body }}</p>
+		          	<footer><cite>{{ record.title }}</cite></footer>
+			</blockquote>
+	          
+
+	     {% endfor %}
+		</div>
+	</div>
+</div>
+<div id="sidefoot"></div>
+
+<!-- End Sidebar -->

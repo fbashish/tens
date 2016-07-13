@@ -1,0 +1,61 @@
+# This file defines the menus on the website. See the documentation for
+# details: http://docs.bolt.cm/menus
+
+main:
+  - label: Our Products
+    title: Our products.
+    path: products/
+    submenu:
+        - label: ALL PRODUCTS
+          path: products/
+        - label: ACM - Mechanical Aircraft Cable Tension Meter
+          path: products/acm
+        - label: ACX-1 - Digital Aircraft Cable Tension Meter
+          path: products/acx-1   
+        - label: BTM - Mechanical Band and Tape Tension Meter
+          path: products/btm
+        - label: CM - Mechanical Cable Tension Meter
+          path: products/cable-meter
+        - label: CX-1 - Digital Cable Tension Meter
+          path: products/cx-1
+        - label: LX-1 - Digital Wire Tension Meter
+          path: products/lx-1
+        - label: STX-1 - Digital Strap Tension Meter
+          path: products/stx-1
+        - label: TR - Mechanical Wire and Filament Tension Meter
+          path: products/tr
+        - label: TX-1 - Digital Wire and Filament Tension Meter
+          path: products/tx-1    
+        - label: WC- Mechanical Sheet and Web Tension Meter
+          path: products/wc 
+        - label: Signal Conditioners and Displays
+          path: products/signal-conditioners
+        - label: Fiber and Wire Tension Transducers
+          path: products/tension-transducers
+        - label: Web, Strap and Belt Tension Transducers
+          path: products/web-transducers
+        - label: NSN Numbers
+          path: files/NSN_Numbers.pdf
+          class: fancybox fancybox.iframe 
+  - label: Operating Instructions
+    path: operating-instructions/  
+  - label: About Us
+    path: about-us/
+    submenu:
+      - label: Our Story
+        path: our-story/
+      - label: Certifications and Traceability
+        path: certifications-and-traceability/
+      - label: Testimonials
+        path: testimonials/    
+  - label: Service
+    path: service/  
+  - label: Contact Us
+    path: contact-us
+    submenu:
+    - label: Contact Us
+      path: contact-us
+    - label: Service
+      path: service/
+    - label: International Distributors
+      path: international-distributors

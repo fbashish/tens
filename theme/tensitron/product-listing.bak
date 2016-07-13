@@ -1,0 +1,65 @@
+{% include '_header.twig' %}
+<div id="products">
+	
+	<div id="main-content" class="container-fluid">
+	
+
+	
+	    <div class="row">
+			<aside class="col-md-4 hidden-sm hidden-xs">
+
+		      	{% include '_product_aside.twig' %}
+
+		    </aside>
+
+
+	        <div id="product-area" class="col-md-8">
+	
+				<div class="row">
+					<h1 class="jumbo">Our Products</h1>
+				</div>
+				
+				<div class="row">
+					
+	        		{% for record in records %}
+					<div class="col-md-4 col-sm-4">
+					
+						<div id="product-holder">
+							{% if record.image!="" %}
+				          	<div>
+					            <a href="{{ image(record.image) }}">
+				                    <img src="{{ thumbnail(record.image, 220, 130) }}">
+					            </a>
+				        	</div>
+		        			{% endif %}
+		          			<h5><a href="{{ record.link }}">{{ record.title }}</a></h5>
+
+					        <div>
+					        	{% if record.introduction %}
+						          {{ record.introduction }}
+						        {% elseif record.teaser %}
+						          {{ record.teaser }}
+						        {% else %}
+						          <p>{{ record.excerpt(300) }}</p>
+						        {% endif %}
+
+						        {% include '_recordfooter.twig' with {record: record} %}
+							</div>
+						</div>
+	    			</div>
+
+	    			{% endfor %}
+
+
+	    		</div><!-- end product rows -->
+
+	    	</div><!-- end 8 -->
+			{# If there are more records than will fit on one page, the pager is shown. #}
+
+			{{ pager() }}
+	    </div><!-- end row-fluid -->
+
+	</div><!-- end container -->
+</div>
+
+    {% include '_footer.twig' %}

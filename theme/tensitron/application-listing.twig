@@ -1,0 +1,50 @@
+{% include '_header.twig' %}
+
+<div id="products">
+	{% setcontent records = 'applications' orderby 'title' %}
+
+	<div id="page-content" class="container-fluid">
+	    <div class="row">
+	
+			<aside class="col-md-3 hidden-sm hidden-xs">
+            
+	          	{% include '_app_aside.twig' %}
+
+	        </aside>
+
+			<section  class="col-md-9">
+				<div id="record-content">
+				<h1 class="title-box">Operating Instructions</h1>
+					<div class="content">
+						{{ record.body }}
+						<div class="well" style="margin:0 25px;">
+							<div class="js-masonry row" id="app-area" data-masonry-options='{"itemSelector": ".app-container" }'>
+								{% for record in records %}
+									{% include 'app.twig' %}
+								
+								{% endfor %}							
+							</div><!--end masonry-->
+						</div><!-- end well -->
+					</div><!-- end content -->
+				</div><!-- end record content -->
+			</section>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+        	
+
+
+	    </div><!-- end row-fluid -->
+
+	</div><!-- end container -->
+</div>
+
+    {% include '_footer.twig' %}

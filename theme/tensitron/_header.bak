@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {# make sure we always display a proper title: The record's title if there is one, appended with the
+       sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+    <title>
+      {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+      {{ app.config.general.sitename }}
+      {% if record.title is not defined and app.config.general.payoff is defined %} | {{ app.config.general.payoff }}{% endif %}
+    </title>
+
+    {# Stylesheet for Bootstrap #}
+    <link rel="stylesheet" href="{{ paths.theme }}css/style.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/bootstrap.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/bootstrap-responsive.css">
+
+    {# Javascript for Bootstrap #}
+    <script src="{{ paths.theme }}js/jquery-1.9.1.min.js"></script>
+    <script src="{{ paths.theme }}js/bootstrap.js"></script>
+    <script src="{{ paths.theme }}js/bootstrap.min.js"></script>
+    <script src="{{ paths.theme }}js/bootstrap-dropdown.js"></script>
+
+    
+
+    {# Fancy Box Loader #}
+    <script src="{{ paths.app }}view/lib/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="{{ paths.app }}view/lib/fancybox/jquery.fancybox.css?v=2.1.5">
+
+    
+
+</head>
+<body>
+
+
+        <div class="navbar navbar-default navbar-fixed-top">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+			<div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="{{ paths.root }}"><img src="{{ paths.root }}/files/tensitron-logo-head.svg" class="img-responsive"></a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse pull-right">
+              <ul class="nav">
+                <!-- <li>	{% include '_sub_searchbox.twig' %}</li> -->
+              	{{ menu('main', '_sub_menu.twig') }}
+
+
+              </ul>
+
+			</div>
+			
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+
+        </div><!-- /.navbar -->
